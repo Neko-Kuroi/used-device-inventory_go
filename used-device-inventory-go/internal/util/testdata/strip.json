@@ -1,0 +1,46 @@
+[
+ {
+  "input": "abc",
+  "want": "abc"
+ },
+ {
+  "input": " abc ",
+  "want": "abc"
+ },
+ {
+  "input": "　abc　",
+  "want": "abc"
+ },
+ {
+  "input": "\u001cabc\u001f",
+  "want": "abc"
+ },
+ {
+  "input": " abc ",
+  "want": "abc"
+ },
+ {
+  "input": "​abc​",
+  "want": "​abc​"
+ },
+ {
+  "input": "　 abc \t",
+  "want": "abc"
+ },
+ {
+  "input": "a b",
+  "want": "a b"
+ },
+ {
+  "input": "",
+  "want": ""
+ },
+ {
+  "input": "　",
+  "want": ""
+ },
+ {
+  "input": " abc ",
+  "want": "abc"
+ }
+]

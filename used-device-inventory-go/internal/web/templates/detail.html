@@ -1,0 +1,107 @@
+{{define "title"}}個体 #{{.Device.ID}}{{end}}
+{{define "body"}}
+<h1>#{{.Device.ID}} {{.Device.Maker}} {{.Device.Model}}</h1>
+<p><a href="/devices/{{.Device.ID}}/edit">編集する</a></p>
+<table>
+  <tr><th>種別</th><td>{{kindLabel .Device.Kind}}</td><th>状態</th><td>{{statusLabel .Device.Status}}</td></tr>
+  <tr><th>シリアル番号</th><td>{{.Device.SerialNumber}}</td><th>状態ランク</th><td>{{.Device.ConditionRank}}</td></tr>
+  <tr><th>IMEI</th><td>{{if .IMEIView}}{{.IMEIView}}{{else}}（記録なし）{{end}}{{if and .Device.IMEI (not .User.IsAdmin)}} ※全文は管理者のみ{{end}}</td>
+      <th>ネットワーク利用制限</th><td>{{.Device.NetworkRestriction}}</td></tr>
+  <tr><th>容量 / メモリ / 色</th><td>{{.Device.Storage}} / {{.Device.RAM}} / {{.Device.Color}}</td>
+      <th>バッテリー最大容量</th><td>{{if .Device.BatteryHealth}}{{deref .Device.BatteryHealth}} %{{end}}</td></tr>
+  <tr><th>SIM ロック等</th><td>{{.Device.SIMStatus}}</td><th>アクティベーションロック</th><td>{{.Device.ActivationLock}}</td></tr>
+  <tr><th>CPU / GPU</th><td>{{.Device.CPU}} / {{.Device.GPU}}</td><th>OS</th><td>{{.Device.OSName}}</td></tr>
+  <tr><th>バッテリーサイクル</th><td>{{if .Device.BatteryCycles}}{{deref .Device.BatteryCycles}}{{end}}</td><th></th><td></td></tr>
+  <tr><th>外観メモ</th><td colspan="3">{{.Device.CosmeticDamage}}</td></tr>
+  <tr><th>付属品</th><td colspan="3">{{.Device.Accessories}}</td></tr>
+  <tr><th>仕入れ</th><td colspan="3">{{.Device.PurchaseDate}} / {{.Device.PurchaseSource}} / {{if .Device.PurchasePrice}}{{yen (deref .Device.PurchasePrice)}} 円{{end}}</td></tr>
+  <tr><th>販売予定価格</th><td>{{if .Device.PlannedPrice}}{{yen (deref .Device.PlannedPrice)}} 円{{end}}</td>
+      <th>実売</th><td>{{.Device.SaleDate}} / {{.Device.SaleChannel}} / {{if .Device.SalePrice}}{{yen (deref .Device.SalePrice)}} 円{{end}}</td></tr>
+  <tr><th>保証期間</th><td>{{if .Device.WarrantyDays}}{{deref .Device.WarrantyDays}} 日{{end}}</td>
+      <th>登録 / 更新</th><td>{{jst .Device.CreatedAt}} / {{jst .Device.UpdatedAt}}</td></tr>
+  <tr><th>備考</th><td colspan="3">{{.Device.Notes}}</td></tr>
+  <tr><th>検査</th><td>{{.Inspection.Done}}/{{.Inspection.Total}} 項目{{if .Inspection.Complete}}（完了）{{end}}{{if .Inspection.Fails}} 不合格: {{join .Inspection.Fails ", "}}{{end}}
+      <a href="/devices/{{.Device.ID}}/inspection">チェックリストを開く</a></td>
+      <th>データ消去</th><td>{{.Device.DataErasureAt}} {{.Device.DataErasureMethod}}{{if .ErasureByName}}（実施者: {{.ErasureByName}}）{{end}}</td></tr>
+</table>
+
+<h2>経費と粗利</h2>
+<table>
+<tr><th>日付</th><th>種類</th><th>金額</th><th>備考</th><th></th></tr>
+{{range .Expenses}}
+<tr><td>{{.ExpenseDate}}</td><td>{{catLabel .Category}}</td>
+<td>{{yen .Amount}} 円</td><td>{{.Note}}</td>
+<td><form method="post" action="/devices/{{$.Device.ID}}/expenses/{{.ID}}/delete" style="display:inline">
+<input type="hidden" name="csrf_token" value="{{$.CSRF}}">
+<button type="submit" style="margin:0">削除</button></form></td></tr>
+{{else}}
+<tr><td colspan="5">経費はまだありません。</td></tr>
+{{end}}
+<tr><th colspan="2">経費合計</th><td><strong>{{yen .ExpenseTotal}} 円</strong></td><td colspan="2"></td></tr>
+<tr><th colspan="2">粗利（実売価格 − 仕入れ価格 − 経費）</th>
+<td colspan="3">{{if .Profit}}<strong>{{yen (deref .Profit)}} 円</strong>{{else}}―（実売価格か仕入れ価格が未記録）{{end}}</td></tr>
+<tr><th colspan="2">予定粗利（販売予定価格で計算）</th>
+<td colspan="3">{{if .Planned}}{{yen (deref .Planned)}} 円{{else}}―{{end}}</td></tr>
+</table>
+<form method="post" action="/devices/{{.Device.ID}}/expenses" class="row">
+  <input type="hidden" name="csrf_token" value="{{.CSRF}}">
+  <div><label>日付</label><input name="expense_date" type="date"></div>
+  <div><label>種類</label><select name="category">{{range .Categories}}<option value="{{.Key}}">{{.Label}}</option>{{end}}</select></div>
+  <div><label>金額（円）</label><input name="amount" type="number" min="0" required></div>
+  <div><label>備考</label><input name="note"></div>
+  <div><button type="submit">経費を追加</button></div>
+</form>
+
+<h2>写真</h2>
+{{if .Photos}}
+<div class="row">
+{{range .Photos}}
+<div>
+  <a href="/devices/{{$.Device.ID}}/photos/{{.ID}}">
+    <img src="/devices/{{$.Device.ID}}/photos/{{.ID}}" alt="{{photoKindLabel .Kind}}" style="max-width:180px; max-height:180px">
+  </a>
+  <p>{{photoKindLabel .Kind}}<br>
+  <form method="post" action="/devices/{{$.Device.ID}}/photos/{{.ID}}/delete" style="display:inline">
+  <input type="hidden" name="csrf_token" value="{{$.CSRF}}">
+  <button type="submit" style="margin:0">削除</button></form></p>
+</div>
+{{end}}
+</div>
+{{else}}
+<p>写真はまだありません（1台あたり5枚まで、1枚5MBまで、JPEG / PNG / WebP）。</p>
+{{end}}
+<form method="post" action="/devices/{{.Device.ID}}/photos" enctype="multipart/form-data" class="row">
+  <input type="hidden" name="csrf_token" value="{{.CSRF}}">
+  <div><label>種別</label><select name="kind">{{range .PhotoKinds}}<option value="{{.Key}}">{{.Label}}</option>{{end}}</select></div>
+  <div><label>ファイル</label><input name="photo" type="file" accept=".jpg,.jpeg,.png,.webp,.heic,.heif" required></div>
+  <div><button type="submit">写真を追加</button></div>
+</form>
+
+<h2>状態の変更</h2>
+{{if .NextStatuses}}
+<form method="post" action="/devices/{{.Device.ID}}/status">
+  <input type="hidden" name="csrf_token" value="{{.CSRF}}">
+  <label>次の状態</label>
+  <select name="to_status">
+    {{range .NextStatuses}}
+    <option value="{{.Key}}">{{.Label}}{{if .NeedsReason}}（理由が必要）{{end}}{{if .Blockers}}（不足: {{join .Blockers " / "}}）{{end}}</option>
+    {{end}}
+  </select>
+  <label>理由（戻す・飛ばす・返品・処分のときに必要）</label>
+  <input name="reason">
+  <button type="submit">状態を変更</button>
+</form>
+{{else}}
+<p>この状態からは変更できません（処分は最終状態です）。</p>
+{{end}}
+
+<h2>履歴</h2>
+<table>
+<tr><th>日時</th><th>操作</th><th>内容</th><th>ユーザー</th></tr>
+{{range .History}}
+<tr><td>{{jst .CreatedAt}}</td><td>{{.Action}}</td><td>{{.Detail}}</td><td>{{.Username}}</td></tr>
+{{else}}
+<tr><td colspan="4">履歴がありません。</td></tr>
+{{end}}
+</table>
+{{end}}

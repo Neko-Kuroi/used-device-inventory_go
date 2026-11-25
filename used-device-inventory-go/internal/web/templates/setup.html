@@ -1,0 +1,13 @@
+{{define "title"}}初期設定{{end}}
+{{define "body"}}
+<h1>初期設定</h1>
+<p>最初の管理者を作成します。この画面は、ユーザーがまだ誰もいないときだけ表示されます。</p>
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{.CSRF}}">
+  <label>ユーザー名</label>
+  <input name="username" required>
+  <label>パスワード（8文字以上）</label>
+  <input name="password" type="password" required>
+  <button type="submit">管理者を作成</button>
+</form>
+{{end}}

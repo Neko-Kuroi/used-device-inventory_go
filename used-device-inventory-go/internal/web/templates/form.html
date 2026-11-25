@@ -1,0 +1,69 @@
+{{define "title"}}{{if .View.Device}}編集{{else}}新規登録{{end}}{{end}}
+{{define "body"}}
+<h1>{{if .View.Device}}個体の編集{{else}}個体の新規登録{{end}}</h1>
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{.CSRF}}">
+  <div class="row">
+    <div><label>種別 *</label>
+      <select name="kind">{{range .View.Kinds}}<option value="{{.Key}}" {{if eq $.View.Kind .Key}}selected{{end}}>{{.Label}}</option>{{end}}</select></div>
+    <div><label>状態</label>
+      <p>{{.View.StatusLabel}}<br>※状態の変更は、登録後に詳細画面から行います</p></div>
+    <div><label>メーカー</label><input name="maker" value="{{.View.Maker}}"></div>
+    <div><label>機種名</label><input name="model" value="{{.View.Model}}"></div>
+    <div><label>シリアル番号 *</label><input name="serial_number" value="{{.View.SerialNumber}}" required></div>
+    <div><label>状態ランク</label>
+      <select name="condition_rank">{{range .View.Ranks}}<option value="{{.}}" {{if eq $.View.ConditionRank .}}selected{{end}}>{{.}}</option>{{end}}</select></div>
+  </div>
+
+  <h2>スマートフォン固有</h2>
+  <div class="row">
+    <div><label>IMEI（判別できない場合は空欄）{{if and .View.Device .View.Device.IMEI (not .View.IsAdmin)}} ※全文は管理者のみ表示{{end}}</label>
+      <input name="imei" value="{{.View.IMEI}}" placeholder="15桁の半角数字"></div>
+    <div><label>ネットワーク利用制限</label>
+      <select name="network_restriction">{{range .View.Limits}}<option value="{{.}}" {{if eq $.View.NetworkRestriction .}}selected{{end}}>{{if .}}{{.}}{{else}}（未選択）{{end}}</option>{{end}}</select></div>
+    <div><label>容量</label><input name="storage" value="{{.View.Storage}}"></div>
+    <div><label>メモリ</label><input name="ram" value="{{.View.RAM}}"></div>
+    <div><label>色</label><input name="color" value="{{.View.Color}}"></div>
+    <div><label>バッテリー最大容量 %</label><input name="battery_health" type="number" min="0" max="100" value="{{.View.BatteryHealth}}"></div>
+    <div><label>SIM ロック / 利用制限メモ</label><input name="sim_status" value="{{.View.SIMStatus}}"></div>
+    <div><label>アクティベーションロック</label><input name="activation_lock" value="{{.View.ActivationLock}}"></div>
+  </div>
+
+  <h2>パソコン固有</h2>
+  <div class="row">
+    <div><label>CPU</label><input name="cpu" value="{{.View.CPU}}"></div>
+    <div><label>GPU</label><input name="gpu" value="{{.View.GPU}}"></div>
+    <div><label>OS</label><input name="os_name" value="{{.View.OSName}}"></div>
+    <div><label>バッテリーサイクル回数</label><input name="battery_cycles" type="number" min="0" value="{{.View.BatteryCycles}}"></div>
+  </div>
+
+  <h2>状態・付属品</h2>
+  <label>外観メモ（傷・凹みの場所と程度）</label>
+  <textarea name="cosmetic_damage" rows="3">{{.View.CosmeticDamage}}</textarea>
+  <label>付属品（箱、ケーブル、充電器など）</label>
+  <textarea name="accessories" rows="2">{{.View.Accessories}}</textarea>
+
+  <h2>検査・データ消去</h2>
+  <p>「販売可能」へ進むには、検査の完了とデータ消去の記録の両方が必要です。検査の完了は、詳細画面のチェックリストで全項目が済んだときに自動で決まります（ここでは変えられません）。現在の状態: {{if .View.InspectionDone}}完了{{else}}未完了{{end}}</p>
+  <div class="row">
+    <div><label>データ消去日</label><input name="data_erasure_at" type="date" value="{{.View.DataErasureAt}}"></div>
+    <div><label>データ消去の方法</label><input name="data_erasure_method" value="{{.View.DataErasureMethod}}" placeholder="例: 本体の初期化、専用ソフトで消去"></div>
+  </div>
+
+  <h2>金額・販売</h2>
+  <div class="row">
+    <div><label>仕入れ日</label><input name="purchase_date" type="date" value="{{.View.PurchaseDate}}"></div>
+    <div><label>仕入れ先</label><input name="purchase_source" value="{{.View.PurchaseSource}}"></div>
+    <div><label>仕入れ価格（円）</label><input name="purchase_price" type="number" min="0" value="{{.View.PurchasePrice}}"></div>
+    <div><label>販売予定価格（円）</label><input name="planned_price" type="number" min="0" value="{{.View.PlannedPrice}}"></div>
+    <div><label>販売日</label><input name="sale_date" type="date" value="{{.View.SaleDate}}"></div>
+    <div><label>販売先・経路</label><input name="sale_channel" value="{{.View.SaleChannel}}"></div>
+    <div><label>実売価格（円）</label><input name="sale_price" type="number" min="0" value="{{.View.SalePrice}}"></div>
+    <div><label>保証期間（日）</label><input name="warranty_days" type="number" min="0" value="{{.View.WarrantyDays}}"></div>
+  </div>
+
+  <label>備考</label>
+  <textarea name="notes" rows="3">{{.View.Notes}}</textarea>
+  <button type="submit">{{if .View.Device}}保存{{else}}登録{{end}}</button>
+</form>
+{{end}}

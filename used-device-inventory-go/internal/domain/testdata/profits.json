@@ -1,0 +1,50 @@
+[
+ {
+  "sale_price": 1000,
+  "planned_price": 900,
+  "purchase_price": 500,
+  "total": 120,
+  "gross": 380,
+  "planned_profit": 280
+ },
+ {
+  "sale_price": null,
+  "planned_price": 900,
+  "purchase_price": 500,
+  "total": 120,
+  "gross": null,
+  "planned_profit": 280
+ },
+ {
+  "sale_price": 1000,
+  "planned_price": null,
+  "purchase_price": 500,
+  "total": 120,
+  "gross": 380,
+  "planned_profit": null
+ },
+ {
+  "sale_price": 1000,
+  "planned_price": 900,
+  "purchase_price": null,
+  "total": 120,
+  "gross": null,
+  "planned_profit": null
+ },
+ {
+  "sale_price": null,
+  "planned_price": null,
+  "purchase_price": null,
+  "total": 120,
+  "gross": null,
+  "planned_profit": null
+ },
+ {
+  "sale_price": 0,
+  "planned_price": 0,
+  "purchase_price": 0,
+  "total": 120,
+  "gross": -120,
+  "planned_profit": -120
+ }
+]

@@ -1,0 +1,120 @@
+[
+ {
+  "id": 1,
+  "kind": "smartphone",
+  "status": "sold",
+  "imei": "123456789012345",
+  "network_restriction": "○",
+  "inspection_done": 1,
+  "data_erasure_by": 1,
+  "expense_total": 2300,
+  "gross_profit": 9700,
+  "planned_profit": 12700,
+  "inspection": {
+   "done": 10,
+   "total": 10,
+   "complete": true,
+   "fails": []
+  },
+  "history": [
+   {
+    "action": "create",
+    "detail": "Apple iPhone 12 を登録"
+   },
+   {
+    "action": "inspection",
+    "detail": "検査: 10/10 項目（完了）"
+   },
+   {
+    "action": "expense",
+    "detail": "経費追加: 部品代 1,500円（バッテリー交換）"
+   },
+   {
+    "action": "expense",
+    "detail": "経費追加: 送料 800円"
+   },
+   {
+    "action": "status",
+    "detail": "仕入済み → 検査中"
+   },
+   {
+    "action": "status",
+    "detail": "検査中 → 販売可能"
+   },
+   {
+    "action": "update",
+    "detail": "変更: sale_date, sale_channel, sale_price"
+   },
+   {
+    "action": "status",
+    "detail": "販売可能 → 販売済み"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "kind": "pc",
+  "status": "stocked",
+  "imei": null,
+  "network_restriction": "",
+  "inspection_done": 0,
+  "data_erasure_by": 1,
+  "expense_total": 0,
+  "gross_profit": null,
+  "planned_profit": 15000,
+  "inspection": {
+   "done": 3,
+   "total": 11,
+   "complete": false,
+   "fails": [
+    "画面表示"
+   ]
+  },
+  "history": [
+   {
+    "action": "create",
+    "detail": "Lenovo ThinkPad X1 を登録"
+   },
+   {
+    "action": "inspection",
+    "detail": "検査: 3/11 項目、不合格: 画面表示"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "kind": "tablet",
+  "status": "ready",
+  "imei": null,
+  "network_restriction": "",
+  "inspection_done": 1,
+  "data_erasure_by": 1,
+  "expense_total": 0,
+  "gross_profit": null,
+  "planned_profit": 15000,
+  "inspection": {
+   "done": 8,
+   "total": 8,
+   "complete": true,
+   "fails": []
+  },
+  "history": [
+   {
+    "action": "create",
+    "detail": "Apple iPad を登録"
+   },
+   {
+    "action": "inspection",
+    "detail": "検査: 8/8 項目（完了）"
+   },
+   {
+    "action": "status",
+    "detail": "仕入済み → 検査中"
+   },
+   {
+    "action": "status",
+    "detail": "検査中 → 販売可能"
+   }
+  ]
+ }
+]

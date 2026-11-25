@@ -1,0 +1,38 @@
+{{define "title"}}在庫一覧{{end}}
+{{define "body"}}
+<h1>在庫一覧</h1>
+<form method="get" class="row">
+  <div><label>検索（メーカー・機種・シリアル・備考）</label>
+  <input name="q" value="{{.Q}}"></div>
+  <div><label>種別</label>
+  <select name="kind"><option value="">すべて</option>
+    {{range .Kinds}}<option value="{{.Key}}" {{if eq $.Kind .Key}}selected{{end}}>{{.Label}}</option>{{end}}
+  </select></div>
+  <div><label>状態</label>
+  <select name="status"><option value="">すべて</option>
+    {{range .Statuses}}<option value="{{.Key}}" {{if eq $.Status .Key}}selected{{end}}>{{.Label}}</option>{{end}}
+  </select></div>
+  <div><button type="submit">絞り込む</button></div>
+</form>
+<p>{{len .Devices}} 件 ／ <a href="{{.CSVURL}}">CSVでダウンロード（現在の絞り込み）</a></p>
+<table>
+<tr><th>ID</th><th>種別</th><th>メーカー / 機種</th><th>シリアル</th><th>IMEI</th><th>ランク</th><th>状態</th><th>写真</th><th>販売予定価格</th><th>経費合計</th><th>粗利</th></tr>
+{{range .Devices}}
+<tr>
+  <td><a href="/devices/{{.Device.ID}}">{{.Device.ID}}</a></td>
+  <td>{{kindLabel .Device.Kind}}</td>
+  <td>{{.Device.Maker}} {{.Device.Model}}</td>
+  <td>{{.Device.SerialNumber}}</td>
+  <td>{{mask .Device.IMEI}}</td>
+  <td>{{.Device.ConditionRank}}</td>
+  <td>{{statusLabel .Device.Status}}</td>
+  <td>{{if .PhotoCount}}写真 {{.PhotoCount}}枚{{end}}</td>
+  <td>{{if .Device.PlannedPrice}}{{yen (deref .Device.PlannedPrice)}} 円{{end}}</td>
+  <td>{{yen .ExpenseTotal}} 円</td>
+  <td>{{if .Profit}}{{yen (deref .Profit)}} 円{{else}}―{{end}}</td>
+</tr>
+{{else}}
+<tr><td colspan="11">該当する在庫がありません。</td></tr>
+{{end}}
+</table>
+{{end}}

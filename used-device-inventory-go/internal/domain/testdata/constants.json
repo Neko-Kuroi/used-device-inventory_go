@@ -1,0 +1,280 @@
+{
+ "kinds": {
+  "smartphone": "スマートフォン",
+  "pc": "パソコン",
+  "tablet": "タブレット"
+ },
+ "ranks": [
+  "S",
+  "A",
+  "B",
+  "C",
+  "junk"
+ ],
+ "statuses": {
+  "stocked": "仕入済み",
+  "inspecting": "検査中",
+  "maintaining": "整備中",
+  "ready": "販売可能",
+  "reserved": "取り置き",
+  "sold": "販売済み",
+  "returned": "返品・保証対応",
+  "disposed": "処分"
+ },
+ "network_restriction": [
+  "",
+  "○",
+  "△",
+  "×",
+  "確認できず"
+ ],
+ "flow_order": [
+  "stocked",
+  "inspecting",
+  "maintaining",
+  "ready",
+  "reserved",
+  "sold"
+ ],
+ "main_order": [
+  "stocked",
+  "inspecting",
+  "ready",
+  "sold"
+ ],
+ "transitions": {
+  "stocked": [
+   "disposed",
+   "inspecting",
+   "maintaining"
+  ],
+  "inspecting": [
+   "disposed",
+   "maintaining",
+   "ready",
+   "stocked"
+  ],
+  "maintaining": [
+   "disposed",
+   "inspecting",
+   "ready"
+  ],
+  "ready": [
+   "inspecting",
+   "maintaining",
+   "reserved",
+   "sold"
+  ],
+  "reserved": [
+   "ready",
+   "sold"
+  ],
+  "sold": [
+   "returned"
+  ],
+  "returned": [
+   "disposed",
+   "maintaining"
+  ],
+  "disposed": []
+ },
+ "reason_pairs": [
+  [
+   "maintaining",
+   "inspecting"
+  ],
+  [
+   "ready",
+   "maintaining"
+  ],
+  [
+   "reserved",
+   "ready"
+  ]
+ ],
+ "device_fields": [
+  "kind",
+  "maker",
+  "model",
+  "serial_number",
+  "imei",
+  "storage",
+  "ram",
+  "color",
+  "battery_health",
+  "sim_status",
+  "activation_lock",
+  "network_restriction",
+  "cpu",
+  "gpu",
+  "os_name",
+  "battery_cycles",
+  "condition_rank",
+  "status",
+  "cosmetic_damage",
+  "accessories",
+  "inspection_done",
+  "data_erasure_at",
+  "data_erasure_method",
+  "purchase_date",
+  "purchase_source",
+  "purchase_price",
+  "planned_price",
+  "sale_date",
+  "sale_channel",
+  "sale_price",
+  "warranty_days",
+  "notes"
+ ],
+ "int_fields": [
+  "battery_cycles",
+  "battery_health",
+  "planned_price",
+  "purchase_price",
+  "sale_price",
+  "warranty_days"
+ ],
+ "checklists": {
+  "smartphone": [
+   [
+    "power",
+    "電源が入る"
+   ],
+   [
+    "screen_touch",
+    "画面表示とタッチ"
+   ],
+   [
+    "camera",
+    "カメラ（前後）"
+   ],
+   [
+    "speaker_mic",
+    "スピーカーとマイク"
+   ],
+   [
+    "buttons",
+    "ボタン類"
+   ],
+   [
+    "charging",
+    "充電"
+   ],
+   [
+    "wifi",
+    "Wi-Fi"
+   ],
+   [
+    "mobile",
+    "モバイル通信"
+   ],
+   [
+    "biometrics",
+    "指紋・顔認証"
+   ],
+   [
+    "battery",
+    "バッテリー状態"
+   ]
+  ],
+  "pc": [
+   [
+    "power",
+    "電源と起動"
+   ],
+   [
+    "display",
+    "画面表示"
+   ],
+   [
+    "keyboard",
+    "キーボード全キー"
+   ],
+   [
+    "trackpad",
+    "トラックパッド"
+   ],
+   [
+    "camera",
+    "カメラ"
+   ],
+   [
+    "speaker_mic",
+    "スピーカーとマイク"
+   ],
+   [
+    "charging_battery",
+    "充電とバッテリー"
+   ],
+   [
+    "wifi",
+    "Wi-Fi"
+   ],
+   [
+    "lan",
+    "有線 LAN"
+   ],
+   [
+    "ports",
+    "USB 等の端子"
+   ],
+   [
+    "storage_health",
+    "ストレージの健康状態"
+   ]
+  ],
+  "tablet": [
+   [
+    "power",
+    "電源が入る"
+   ],
+   [
+    "screen_touch",
+    "画面表示とタッチ"
+   ],
+   [
+    "camera",
+    "カメラ（前後）"
+   ],
+   [
+    "speaker_mic",
+    "スピーカーとマイク"
+   ],
+   [
+    "buttons",
+    "ボタン類"
+   ],
+   [
+    "charging",
+    "充電"
+   ],
+   [
+    "wifi",
+    "Wi-Fi"
+   ],
+   [
+    "battery",
+    "バッテリー状態"
+   ]
+  ]
+ },
+ "results": {
+  "pass": "合格",
+  "fail": "不合格",
+  "na": "対象外"
+ },
+ "expense_categories": {
+  "parts": "部品代",
+  "shipping": "送料",
+  "fee": "販売手数料",
+  "other": "その他"
+ },
+ "photo_kinds": {
+  "front": "正面",
+  "back": "背面",
+  "damage": "傷",
+  "other": "その他"
+ },
+ "max_photos": 5,
+ "max_photo_bytes": 5242880
+}

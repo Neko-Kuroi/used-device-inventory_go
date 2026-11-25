@@ -1,0 +1,66 @@
+[
+ {
+  "input": "abc",
+  "want": "abc"
+ },
+ {
+  "input": "=SUM(A1:A2)",
+  "want": "'=SUM(A1:A2)"
+ },
+ {
+  "input": "+81-3-0000",
+  "want": "'+81-3-0000"
+ },
+ {
+  "input": "-5",
+  "want": "'-5"
+ },
+ {
+  "input": "@cmd",
+  "want": "'@cmd"
+ },
+ {
+  "input": " =padded",
+  "want": "' =padded"
+ },
+ {
+  "input": "\t=x",
+  "want": "'\t=x"
+ },
+ {
+  "input": "　=x",
+  "want": "'　=x"
+ },
+ {
+  "input": "\u001c=x",
+  "want": "'\u001c=x"
+ },
+ {
+  "input": "",
+  "want": ""
+ },
+ {
+  "input": "=",
+  "want": "'="
+ },
+ {
+  "input": "a=b",
+  "want": "a=b"
+ },
+ {
+  "input": 0,
+  "want": 0
+ },
+ {
+  "input": 123,
+  "want": 123
+ },
+ {
+  "input": null,
+  "want": null
+ },
+ {
+  "input": -5,
+  "want": -5
+ }
+]

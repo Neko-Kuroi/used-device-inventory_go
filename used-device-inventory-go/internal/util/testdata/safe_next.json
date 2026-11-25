@@ -1,0 +1,42 @@
+[
+ {
+  "input": "/",
+  "want": "/"
+ },
+ {
+  "input": "/devices",
+  "want": "/devices"
+ },
+ {
+  "input": "/devices/3?x=1",
+  "want": "/devices/3?x=1"
+ },
+ {
+  "input": "//evil.example",
+  "want": "/"
+ },
+ {
+  "input": "/\\evil.example",
+  "want": "/"
+ },
+ {
+  "input": "",
+  "want": "/"
+ },
+ {
+  "input": "devices",
+  "want": "/"
+ },
+ {
+  "input": "https://example.com/",
+  "want": "/"
+ },
+ {
+  "input": "/a",
+  "want": "/a"
+ },
+ {
+  "input": "\\evil.example",
+  "want": "/"
+ }
+]

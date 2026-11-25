@@ -1,0 +1,38 @@
+[
+ {
+  "password": "password",
+  "salt": "salt",
+  "n": 16,
+  "r": 1,
+  "p": 1,
+  "keylen": 64,
+  "hex": "45133c3dfba48c82235df51a5349924110eee893752f0d4168d2e2aee5722d8252ac44e09af64290dd64406ebfe74b5768d2e5ee88b55f78104306d5db5d8908"
+ },
+ {
+  "password": "password",
+  "salt": "NaCl",
+  "n": 1024,
+  "r": 8,
+  "p": 16,
+  "keylen": 64,
+  "hex": "fdbabe1c9d3472007856e7190d01e9fe7c6ad7cbc8237830e77376634b3731622eaf30d92e22a3886ff109279d9830dac727afb94a83ee6d8360cbdfa2cc0640"
+ },
+ {
+  "password": "パスワード",
+  "salt": "pepper",
+  "n": 64,
+  "r": 4,
+  "p": 2,
+  "keylen": 48,
+  "hex": "874dd4e67ccb7b8b2a4532ecbef0f565b8d702db7429b1776afb90eb7253095b8c276e9d14e6b6e0fb7a0cb18bce8f5a"
+ },
+ {
+  "password": "admin-pass-1",
+  "salt": "0123456789abcdef",
+  "n": 32768,
+  "r": 8,
+  "p": 1,
+  "keylen": 64,
+  "hex": "8635b27ed9b0761380b22227059838f04946946747c2a214798a02b06a68ab42bc14d6d718fc4dc9c0e78400e9e02121c96b3f03ade8758bf7e78b5954ec13b5"
+ }
+]

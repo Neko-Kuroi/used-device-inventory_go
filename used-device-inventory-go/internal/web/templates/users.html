@@ -1,0 +1,20 @@
+{{define "title"}}ユーザー管理{{end}}
+{{define "body"}}
+<h1>ユーザー管理</h1>
+<table>
+<tr><th>ID</th><th>ユーザー名</th><th>管理者</th><th>作成日時</th></tr>
+{{range .Users}}
+<tr><td>{{.ID}}</td><td>{{.Username}}</td><td>{{if .IsAdmin}}はい{{end}}</td><td>{{jst .CreatedAt}}</td></tr>
+{{end}}
+</table>
+<h2>ユーザーを追加</h2>
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{.CSRF}}">
+  <label>ユーザー名</label>
+  <input name="username" required>
+  <label>パスワード（8文字以上）</label>
+  <input name="password" type="password" required>
+  <label style="font-weight:normal"><input type="checkbox" name="is_admin" style="width:auto"> 管理者にする（IMEI の全文が見えるようになります）</label>
+  <button type="submit">追加</button>
+</form>
+{{end}}

@@ -1,0 +1,95 @@
+user_version=5
+index|idx_device_status|device|CREATE INDEX idx_device_status ON device(status)
+index|idx_expense_device|expense|CREATE INDEX idx_expense_device ON expense(device_id, id)
+index|idx_history_device|history|CREATE INDEX idx_history_device ON history(device_id, id)
+index|idx_photo_device|device_photo|CREATE INDEX idx_photo_device ON device_photo(device_id, id)
+table|device|device|CREATE TABLE device (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    kind TEXT NOT NULL CHECK (kind IN ('smartphone', 'pc', 'tablet')),
+    maker TEXT NOT NULL DEFAULT '',
+    model TEXT NOT NULL DEFAULT '',
+    serial_number TEXT NOT NULL UNIQUE,
+    -- Smartphone-specific (IMEI may be NULL when it cannot be identified)
+    imei TEXT,
+    storage TEXT NOT NULL DEFAULT '',
+    ram TEXT NOT NULL DEFAULT '',
+    color TEXT NOT NULL DEFAULT '',
+    battery_health INTEGER,
+    sim_status TEXT NOT NULL DEFAULT '',
+    activation_lock TEXT NOT NULL DEFAULT '',
+    network_restriction TEXT NOT NULL DEFAULT '',
+    -- PC-specific
+    cpu TEXT NOT NULL DEFAULT '',
+    gpu TEXT NOT NULL DEFAULT '',
+    os_name TEXT NOT NULL DEFAULT '',
+    battery_cycles INTEGER,
+    -- Common
+    condition_rank TEXT NOT NULL DEFAULT 'B'
+        CHECK (condition_rank IN ('S', 'A', 'B', 'C', 'junk')),
+    status TEXT NOT NULL DEFAULT 'stocked'
+        CHECK (status IN ('stocked', 'inspecting', 'maintaining',
+                          'ready', 'reserved', 'sold', 'returned', 'disposed')),
+    cosmetic_damage TEXT NOT NULL DEFAULT '',
+    accessories TEXT NOT NULL DEFAULT '',
+    inspection_done INTEGER NOT NULL DEFAULT 0,
+    data_erasure_at TEXT NOT NULL DEFAULT '',
+    data_erasure_method TEXT NOT NULL DEFAULT '',
+    data_erasure_by INTEGER REFERENCES user(id),
+    purchase_date TEXT NOT NULL DEFAULT '',
+    purchase_source TEXT NOT NULL DEFAULT '',
+    purchase_price INTEGER,
+    planned_price INTEGER,
+    sale_date TEXT NOT NULL DEFAULT '',
+    sale_channel TEXT NOT NULL DEFAULT '',
+    sale_price INTEGER,
+    warranty_days INTEGER,
+    notes TEXT NOT NULL DEFAULT '',
+    created_by INTEGER REFERENCES user(id),
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+)
+table|device_photo|device_photo|CREATE TABLE device_photo (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id INTEGER NOT NULL REFERENCES device(id),
+    filename TEXT NOT NULL,
+    kind TEXT NOT NULL DEFAULT 'other'
+        CHECK (kind IN ('front', 'back', 'damage', 'other')),
+    created_by INTEGER REFERENCES user(id),
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+)
+table|expense|expense|CREATE TABLE expense (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id INTEGER NOT NULL REFERENCES device(id),
+    expense_date TEXT NOT NULL DEFAULT '',
+    category TEXT NOT NULL
+        CHECK (category IN ('parts', 'shipping', 'fee', 'other')),
+    amount INTEGER NOT NULL CHECK (amount >= 0),
+    note TEXT NOT NULL DEFAULT '',
+    created_by INTEGER REFERENCES user(id),
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+)
+table|history|history|CREATE TABLE history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id INTEGER NOT NULL REFERENCES device(id),
+    user_id INTEGER REFERENCES user(id),
+    action TEXT NOT NULL,
+    detail TEXT NOT NULL DEFAULT '',
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+)
+table|inspection|inspection|CREATE TABLE inspection (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id INTEGER NOT NULL REFERENCES device(id),
+    item_key TEXT NOT NULL,
+    result TEXT NOT NULL CHECK (result IN ('pass', 'fail', 'na')),
+    note TEXT NOT NULL DEFAULT '',
+    checked_by INTEGER REFERENCES user(id),
+    checked_at TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (device_id, item_key)
+)
+table|user|user|CREATE TABLE user (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    is_admin INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+)

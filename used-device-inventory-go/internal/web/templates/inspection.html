@@ -1,0 +1,28 @@
+{{define "title"}}検査チェックリスト{{end}}
+{{define "body"}}
+<h1>検査チェックリスト: #{{.Device.ID}} {{.Device.Maker}} {{.Device.Model}}</h1>
+<p>種別: {{kindLabel .Device.Kind}} ／ 進み具合: {{.State.Done}}/{{.State.Total}} 項目
+{{if .State.Complete}}／ <strong>検査完了</strong>{{end}}</p>
+<p>全項目に結果が入り、不合格が1つも無いときに「検査完了」になります。「対象外」は、その個体に無い機能のときに使います。</p>
+<form method="post">
+<input type="hidden" name="csrf_token" value="{{.CSRF}}">
+<table>
+<tr><th>項目</th><th>結果</th><th>メモ</th><th>前回の記録</th></tr>
+{{range .Items}}
+<tr>
+  <td>{{.Label}}</td>
+  <td><select name="result_{{.Key}}" style="width:auto">
+    <option value="">未実施</option>
+    <option value="pass" {{if eq .Result "pass"}}selected{{end}}>合格</option>
+    <option value="fail" {{if eq .Result "fail"}}selected{{end}}>不合格</option>
+    <option value="na" {{if eq .Result "na"}}selected{{end}}>対象外</option>
+  </select></td>
+  <td><input name="note_{{.Key}}" value="{{.Note}}"></td>
+  <td>{{if .CheckedAt}}{{jst .CheckedAt}}{{end}}</td>
+</tr>
+{{end}}
+</table>
+<button type="submit">検査結果を保存</button>
+</form>
+<p><a href="/devices/{{.Device.ID}}">詳細に戻る</a></p>
+{{end}}

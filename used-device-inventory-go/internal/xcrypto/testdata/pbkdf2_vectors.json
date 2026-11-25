@@ -1,0 +1,218 @@
+[
+ {
+  "digest": "sha256",
+  "password": "password",
+  "salt": "salt-sha256",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "c8ecbd722e3de910349c5dd1c79f48d4b125bec2dbaad0f9dbe943b7ad386d17"
+ },
+ {
+  "digest": "sha256",
+  "password": "password",
+  "salt": "salt-sha256",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "0a8b99b13b2f63c8795b4295d9410b69c5f7a219b2a400bb139fdeec25d55ebd"
+ },
+ {
+  "digest": "sha256",
+  "password": "password",
+  "salt": "salt-sha256",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "bdcbdadc7106688cf4aaf9c431248c4477ca093afe7901edc276463578550a5a"
+ },
+ {
+  "digest": "sha256",
+  "password": "admin-pass-1",
+  "salt": "salt-sha256",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "939b6e04ef1880b71901a3a46c557236a2aafd3ce356ad4d6b12053a10b17604"
+ },
+ {
+  "digest": "sha256",
+  "password": "admin-pass-1",
+  "salt": "salt-sha256",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "319e7dce61792c061ef3522b44a9fde8a9a0b9b3bcbf027e13b3f938be49609f"
+ },
+ {
+  "digest": "sha256",
+  "password": "admin-pass-1",
+  "salt": "salt-sha256",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "5a3ee108f876c12e302459831ef62fac572d1918d13c2246906c4dff515a0e08"
+ },
+ {
+  "digest": "sha256",
+  "password": "パスワード123",
+  "salt": "salt-sha256",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "0a1d7ffc9c5d0bbd9cfb3b04d27f856862a583a610ef2b1dabe4819cd5de83f4"
+ },
+ {
+  "digest": "sha256",
+  "password": "パスワード123",
+  "salt": "salt-sha256",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "dc3fb0670d955788e8faf6fc72d1cdce8b4b4818c1a1d3444df8bb2a7f645e9d"
+ },
+ {
+  "digest": "sha256",
+  "password": "パスワード123",
+  "salt": "salt-sha256",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "6583aaf14f62ddf12faa661b3024df1aed756b2b9efdf1d664b04ef8b808e0a6"
+ },
+ {
+  "digest": "sha512",
+  "password": "password",
+  "salt": "salt-sha512",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "9a40d2e9a1389447e188ddf90b872bd7e44be98a2dfa741463d5dbe6209131d1"
+ },
+ {
+  "digest": "sha512",
+  "password": "password",
+  "salt": "salt-sha512",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "5d58e93894aacf01c4c6e66e0869d6cadf398dbdd5094f08f53384f88453e8d9"
+ },
+ {
+  "digest": "sha512",
+  "password": "password",
+  "salt": "salt-sha512",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "caed78d7d8a7385e83aba0b7cec78f006098b4680da0b1eab92cf010a5874a89"
+ },
+ {
+  "digest": "sha512",
+  "password": "admin-pass-1",
+  "salt": "salt-sha512",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "8922eb0d057b2a6f7fea0d1948fc50485feecc77bb43141d42a60ae496e35700"
+ },
+ {
+  "digest": "sha512",
+  "password": "admin-pass-1",
+  "salt": "salt-sha512",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "218bb6c7e30542e02bcd43d8a29299ac1a1f7dd3c76a434a83ddb93a74d08957"
+ },
+ {
+  "digest": "sha512",
+  "password": "admin-pass-1",
+  "salt": "salt-sha512",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "906ab7994e6b62008dfcc6b2cbe48dd2ae566e265a4e98e5b54391d841613501"
+ },
+ {
+  "digest": "sha512",
+  "password": "パスワード123",
+  "salt": "salt-sha512",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "65933b171655f698eebccabcfee3bcc78f89bb566c0425e65c21236f1aef3cd5"
+ },
+ {
+  "digest": "sha512",
+  "password": "パスワード123",
+  "salt": "salt-sha512",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "54c0b6055581a2c8dd49fc87dddbd43b70a36c5a43739fde33c886012b43b474"
+ },
+ {
+  "digest": "sha512",
+  "password": "パスワード123",
+  "salt": "salt-sha512",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "5347e39ea29424cb1f4369717803c9c152e2e19c7fb78299fda88e042c5ad535"
+ },
+ {
+  "digest": "sha1",
+  "password": "password",
+  "salt": "salt-sha1",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "5490cac3bf77449ec209045d682b2c9750d7c3e2d18a69236bb062abbf79634c"
+ },
+ {
+  "digest": "sha1",
+  "password": "password",
+  "salt": "salt-sha1",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "17be15466058c38f34a714cb500988605b2b6bf2d8f2f25d4dd0a1a82bebbd41"
+ },
+ {
+  "digest": "sha1",
+  "password": "password",
+  "salt": "salt-sha1",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "b8faea20295ca504cf23960c4861f37104eca6e463a8295524507739949ffcd2"
+ },
+ {
+  "digest": "sha1",
+  "password": "admin-pass-1",
+  "salt": "salt-sha1",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "e89bdaab19e627cbdf84c667444841d824d155259b7bf5993d91e0341f6f10be"
+ },
+ {
+  "digest": "sha1",
+  "password": "admin-pass-1",
+  "salt": "salt-sha1",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "cfbbce9295502b005f9fb7cd8d2754e96704c05d1f23bb6268af4a81ad0e6058"
+ },
+ {
+  "digest": "sha1",
+  "password": "admin-pass-1",
+  "salt": "salt-sha1",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "5909e9c55e18720f6efdab45bed17267f0535ddaf50a768f28947addb7bb0edb"
+ },
+ {
+  "digest": "sha1",
+  "password": "パスワード123",
+  "salt": "salt-sha1",
+  "iterations": 1,
+  "keylen": 32,
+  "hex": "27abb3833f49b672384a6885b9e046afdf348b4690ac837dae66aee58d12f0a5"
+ },
+ {
+  "digest": "sha1",
+  "password": "パスワード123",
+  "salt": "salt-sha1",
+  "iterations": 2,
+  "keylen": 32,
+  "hex": "c97538d38f88eb1bbfdb13eedb51634ab64b56384047c18a9b2cb0ab8629661b"
+ },
+ {
+  "digest": "sha1",
+  "password": "パスワード123",
+  "salt": "salt-sha1",
+  "iterations": 1000,
+  "keylen": 32,
+  "hex": "6ee4bab99b62c5718feb75ef5684651ab51239e341835e5ca698c1fc4a85b81b"
+ }
+]

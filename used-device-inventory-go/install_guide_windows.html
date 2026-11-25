@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>在庫管理プログラム（Windows版）インストールと起動の説明</title>
+<style>
+  body { font-family: "Yu Gothic UI", "Meiryo", sans-serif; line-height: 1.9; color: #222; max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 1.5em; border-bottom: 3px solid #2b6cb0; padding-bottom: 8px; }
+  h2 { font-size: 1.2em; background: #ebf4fb; border-left: 6px solid #2b6cb0; padding: 6px 12px; margin-top: 40px; }
+  ol, ul { padding-left: 1.6em; }
+  li { margin: 6px 0; }
+  .addr { font-family: Consolas, monospace; font-size: 1.25em; background: #fff8dc; border: 1px solid #d6c87a; border-radius: 6px; padding: 8px 14px; display: inline-block; margin: 8px 0; }
+  .cmd { font-family: Consolas, monospace; background: #f4f4f4; border: 1px solid #ccc; border-radius: 6px; padding: 8px 14px; display: block; margin: 8px 0; white-space: pre-wrap; }
+  .note { background: #fff5f5; border: 1px solid #e2a0a0; border-radius: 6px; padding: 10px 14px; margin: 12px 0; }
+  .point { background: #f0fff4; border: 1px solid #9ecfae; border-radius: 6px; padding: 10px 14px; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #bbb; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; }
+</style>
+</head>
+<body>
+
+<h1>在庫管理プログラム（Windows版）<br>インストールと起動の説明</h1>
+
+<p>このプログラムは、中古のスマートフォンやパソコンの在庫を管理するためのものです。
+「インストール」という大げさな作業はありません。<strong>ファイル1つを置いて、ダブルクリックで起動する</strong>だけです。
+あとはブラウザ（Edge や Chrome）で開いて使います。</p>
+
+<h2>1. 置き場所を作る</h2>
+<ol>
+  <li>パソコンの C ドライブに、新しいフォルダーを作ります。名前は <strong>inventory</strong> にします（場所は <strong>C:\inventory</strong> になります）。</li>
+  <li>受け取った <strong>inventory.exe</strong> を、そのフォルダーの中に入れます。</li>
+</ol>
+<div class="note">
+<strong>注意:</strong> フォルダーは <strong>Program Files の中には作らないでください</strong>。データの保存で問題が起きることがあります。C ドライブの直下（C:\inventory）が確実です。
+</div>
+<p>データ（在庫の記録や写真）は、このフォルダーの中に自動で作られる <strong>instance</strong> というフォルダーに保存されます。プログラムとデータは、同じフォルダーにまとまっています。</p>
+
+<h2>2. 初めて起動する</h2>
+<ol>
+  <li><strong>inventory.exe</strong> をダブルクリックします。</li>
+  <li>青い画面で「Windows によって PC が保護されました」と出ることがあります。これは、配布元が不明なプログラムに対する Windows の確認画面です。<br>
+  <strong>「詳細情報」をクリック → 「実行する」をクリック</strong>してください。この確認は初回だけです。</li>
+  <li>黒い画面（ウィンドウ）が開いて、英語の文字が数行表示されます。<strong>これで起動できています。</strong></li>
+</ol>
+<div class="point">
+<strong>黒い画面について:</strong> この画面は「動いています」という表示専用です。<strong>文字を入力する画面ではありません</strong>（キーボードで打ってもプログラムには届きません）。閉じるとプログラムが止まるので、使い終わるまで開いたままにしておいてください。
+</div>
+
+<h2>3. ブラウザで開いて、管理者を作る（初回だけ）</h2>
+<ol>
+  <li>ブラウザ（Edge や Chrome）を開きます。</li>
+  <li>画面の上のほうにあるアドレス欄（インターネットの住所を入れるところ）に、次の文字を<strong>そのまま正確に</strong>入れます。</li>
+</ol>
+<span class="addr">http://127.0.0.1:5000/</span>
+<ol start="3">
+  <li>Enter キーを押すと、「管理者アカウントの作成」という画面が出ます。</li>
+  <li>ユーザー名とパスワードを決めて入れます。<strong>パスワードは8文字以上</strong>です。忘れないように、紙などに控えておいてください。</li>
+  <li>作成すると、そのままログインした状態で在庫の一覧画面になります。</li>
+</ol>
+
+<h2>4. 毎日の使い方</h2>
+<ol>
+  <li><strong>inventory.exe</strong> をダブルクリックします（黒い画面が開いたままになります）。</li>
+  <li>ブラウザで <strong>http://127.0.0.1:5000/</strong> を開きます。</li>
+  <li>ログイン画面が出るので、ユーザー名とパスワードを入れてログインします。</li>
+  <li>使い終わったら、黒い画面をクリックして <strong>Ctrl キーを押しながら C キー</strong>を押すか、黒い画面を閉じます。これでプログラムが止まります。</li>
+</ol>
+<p>データは操作のたびに自動で保存されています。「保存」ボタンを探す必要はありません。止め忘れても、パソコンの電源を切れば一緒に止まります。</p>
+
+<h2>5. バックアップ（大切なデータの控え）</h2>
+<p>ときどき、<strong>C:\inventory フォルダーごと</strong>、USB メモリなど別の場所にコピーしておいてください。それだけで全部の控えになります。戻すときは、コピーしたフォルダーを元の場所に戻すだけです。</p>
+
+<h2>6. 他の端末から使う場合（必要なときだけ）</h2>
+<p>自宅の別のパソコンやスマートフォンから使う場合は、Tailscale という仕組みを使います。この場合は設定する人に相談してください。手順だけ書いておきます。</p>
+<ol>
+  <li>inventory.exe と同じフォルダーに <strong>config.txt</strong> というファイルを作ります。</li>
+  <li>中身に、次の1行を書きます（アドレス部分は、このパソコンの Tailscale のアドレスに置き換えます）。</li>
+</ol>
+<span class="cmd">addr=100.x.x.x:5000</span>
+<ol start="3">
+  <li>プログラムを起動し直すと、他の端末のブラウザから <strong>http://100.x.x.x:5000/</strong> で開けるようになります。</li>
+</ol>
+<p>インターネット上に直接公開する設定ではないので、config.txt に <strong>0.0.0.0</strong> のような書き方はしないでください。</p>
+
+<h2>7. 困ったとき</h2>
+<table>
+  <tr><th>様子</th><th>確かめること・対処</th></tr>
+  <tr>
+    <td>ブラウザで開けない（「接続できません」など）</td>
+    <td>黒い画面が開いたままか確認してください。閉じてしまっていたら、inventory.exe をダブルクリックし直します。アドレスが <strong>http://127.0.0.1:5000/</strong> と正確に入っているかも確認してください。</td>
+  </tr>
+  <tr>
+    <td>黒い画面が一瞬で消えてしまう</td>
+    <td>すでにプログラムが動いている可能性があります。まずブラウザで開けるか試してください。それでもだめなときは、パソコンを再起動してから、もう一度ダブルクリックしてください。</td>
+  </tr>
+  <tr>
+    <td>黒い画面に文字が入力できない（日本語だけ入るように見える）</td>
+    <td>故障ではありません。その画面は表示専用で、入力する場所はブラウザの画面のほうです。</td>
+  </tr>
+  <tr>
+    <td>ログインのパスワードを忘れた</td>
+    <td>次の「8.」の方法で作り直せます。ホストのパソコンを操作できる人だけができる方法です。</td>
+  </tr>
+</table>
+
+<h2>8. パスワードを忘れたとき（ホストのパソコンでの操作）</h2>
+<p>プログラムを止めた状態で、次の手順でパスワードを作り直します。</p>
+<ol>
+  <li>スタートメニューで「cmd」と検索して、<strong>コマンドプロンプト</strong>を開きます。</li>
+  <li>次の2行を、1行ずつ入れて Enter キーを押します。</li>
+</ol>
+<span class="cmd">cd C:\inventory
+inventory.exe list-users</span>
+<ol start="3">
+  <li>ユーザーの一覧が出ます。作り直したいユーザー名を確認します。</li>
+  <li>次のように入れて Enter キーを押します（admin の部分は、実際のユーザー名に置き換えます）。</li>
+</ol>
+<span class="cmd">inventory.exe reset-password admin</span>
+<ol start="5">
+  <li>新しいパスワードを2回聞かれます。打っても画面には表示されませんが、入力されています。そのまま打って Enter キーを押してください。</li>
+  <li>「パスワードを変更しました」と出れば完了です。なお、ログイン中だった人は、新しいパスワードでログインし直す必要があります。</li>
+</ol>
+<div class="note">
+<strong>PowerShell を使う場合:</strong> PowerShell では、今いるフォルダーのプログラムを実行するとき、頭に <strong>.\</strong> を付ける決まりがあります。上のコマンドは <strong>.\inventory.exe list-users</strong> のように書いてください。「用語が認識されません」というエラーが出たら、この書き方の問題です。
+</div>
+
+</body>
+</html>

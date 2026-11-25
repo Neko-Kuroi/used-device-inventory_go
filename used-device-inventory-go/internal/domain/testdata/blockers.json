@@ -1,0 +1,162 @@
+[
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "",
+  "network_restriction": "",
+  "want": [
+   "検査が完了していません",
+   "データ消去の記録がありません"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "",
+  "network_restriction": "○",
+  "want": [
+   "検査が完了していません",
+   "データ消去の記録がありません"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "",
+  "network_restriction": "△",
+  "want": [
+   "検査が完了していません",
+   "データ消去の記録がありません"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "",
+  "network_restriction": "×",
+  "want": [
+   "検査が完了していません",
+   "データ消去の記録がありません",
+   "ネットワーク利用制限が × です"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "",
+  "network_restriction": "確認できず",
+  "want": [
+   "検査が完了していません",
+   "データ消去の記録がありません"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "",
+  "want": [
+   "検査が完了していません"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "○",
+  "want": [
+   "検査が完了していません"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "△",
+  "want": [
+   "検査が完了していません"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "×",
+  "want": [
+   "検査が完了していません",
+   "ネットワーク利用制限が × です"
+  ]
+ },
+ {
+  "inspection_done": 0,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "確認できず",
+  "want": [
+   "検査が完了していません"
+  ]
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "",
+  "network_restriction": "",
+  "want": [
+   "データ消去の記録がありません"
+  ]
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "",
+  "network_restriction": "○",
+  "want": [
+   "データ消去の記録がありません"
+  ]
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "",
+  "network_restriction": "△",
+  "want": [
+   "データ消去の記録がありません"
+  ]
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "",
+  "network_restriction": "×",
+  "want": [
+   "データ消去の記録がありません",
+   "ネットワーク利用制限が × です"
+  ]
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "",
+  "network_restriction": "確認できず",
+  "want": [
+   "データ消去の記録がありません"
+  ]
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "",
+  "want": []
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "○",
+  "want": []
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "△",
+  "want": []
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "×",
+  "want": [
+   "ネットワーク利用制限が × です"
+  ]
+ },
+ {
+  "inspection_done": 1,
+  "data_erasure_at": "2026-11-01",
+  "network_restriction": "確認できず",
+  "want": []
+ }
+]

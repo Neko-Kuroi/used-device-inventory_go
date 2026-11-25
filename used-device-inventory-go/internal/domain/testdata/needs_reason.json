@@ -1,0 +1,322 @@
+[
+ {
+  "current": "stocked",
+  "target": "stocked",
+  "want": false
+ },
+ {
+  "current": "stocked",
+  "target": "inspecting",
+  "want": false
+ },
+ {
+  "current": "stocked",
+  "target": "maintaining",
+  "want": false
+ },
+ {
+  "current": "stocked",
+  "target": "ready",
+  "want": true
+ },
+ {
+  "current": "stocked",
+  "target": "reserved",
+  "want": false
+ },
+ {
+  "current": "stocked",
+  "target": "sold",
+  "want": true
+ },
+ {
+  "current": "stocked",
+  "target": "returned",
+  "want": true
+ },
+ {
+  "current": "stocked",
+  "target": "disposed",
+  "want": true
+ },
+ {
+  "current": "inspecting",
+  "target": "stocked",
+  "want": true
+ },
+ {
+  "current": "inspecting",
+  "target": "inspecting",
+  "want": false
+ },
+ {
+  "current": "inspecting",
+  "target": "maintaining",
+  "want": false
+ },
+ {
+  "current": "inspecting",
+  "target": "ready",
+  "want": false
+ },
+ {
+  "current": "inspecting",
+  "target": "reserved",
+  "want": false
+ },
+ {
+  "current": "inspecting",
+  "target": "sold",
+  "want": true
+ },
+ {
+  "current": "inspecting",
+  "target": "returned",
+  "want": true
+ },
+ {
+  "current": "inspecting",
+  "target": "disposed",
+  "want": true
+ },
+ {
+  "current": "maintaining",
+  "target": "stocked",
+  "want": false
+ },
+ {
+  "current": "maintaining",
+  "target": "inspecting",
+  "want": true
+ },
+ {
+  "current": "maintaining",
+  "target": "maintaining",
+  "want": false
+ },
+ {
+  "current": "maintaining",
+  "target": "ready",
+  "want": false
+ },
+ {
+  "current": "maintaining",
+  "target": "reserved",
+  "want": false
+ },
+ {
+  "current": "maintaining",
+  "target": "sold",
+  "want": false
+ },
+ {
+  "current": "maintaining",
+  "target": "returned",
+  "want": true
+ },
+ {
+  "current": "maintaining",
+  "target": "disposed",
+  "want": true
+ },
+ {
+  "current": "ready",
+  "target": "stocked",
+  "want": true
+ },
+ {
+  "current": "ready",
+  "target": "inspecting",
+  "want": true
+ },
+ {
+  "current": "ready",
+  "target": "maintaining",
+  "want": true
+ },
+ {
+  "current": "ready",
+  "target": "ready",
+  "want": false
+ },
+ {
+  "current": "ready",
+  "target": "reserved",
+  "want": false
+ },
+ {
+  "current": "ready",
+  "target": "sold",
+  "want": false
+ },
+ {
+  "current": "ready",
+  "target": "returned",
+  "want": true
+ },
+ {
+  "current": "ready",
+  "target": "disposed",
+  "want": true
+ },
+ {
+  "current": "reserved",
+  "target": "stocked",
+  "want": false
+ },
+ {
+  "current": "reserved",
+  "target": "inspecting",
+  "want": false
+ },
+ {
+  "current": "reserved",
+  "target": "maintaining",
+  "want": false
+ },
+ {
+  "current": "reserved",
+  "target": "ready",
+  "want": true
+ },
+ {
+  "current": "reserved",
+  "target": "reserved",
+  "want": false
+ },
+ {
+  "current": "reserved",
+  "target": "sold",
+  "want": false
+ },
+ {
+  "current": "reserved",
+  "target": "returned",
+  "want": true
+ },
+ {
+  "current": "reserved",
+  "target": "disposed",
+  "want": true
+ },
+ {
+  "current": "sold",
+  "target": "stocked",
+  "want": true
+ },
+ {
+  "current": "sold",
+  "target": "inspecting",
+  "want": true
+ },
+ {
+  "current": "sold",
+  "target": "maintaining",
+  "want": false
+ },
+ {
+  "current": "sold",
+  "target": "ready",
+  "want": true
+ },
+ {
+  "current": "sold",
+  "target": "reserved",
+  "want": false
+ },
+ {
+  "current": "sold",
+  "target": "sold",
+  "want": false
+ },
+ {
+  "current": "sold",
+  "target": "returned",
+  "want": true
+ },
+ {
+  "current": "sold",
+  "target": "disposed",
+  "want": true
+ },
+ {
+  "current": "returned",
+  "target": "stocked",
+  "want": false
+ },
+ {
+  "current": "returned",
+  "target": "inspecting",
+  "want": false
+ },
+ {
+  "current": "returned",
+  "target": "maintaining",
+  "want": false
+ },
+ {
+  "current": "returned",
+  "target": "ready",
+  "want": false
+ },
+ {
+  "current": "returned",
+  "target": "reserved",
+  "want": false
+ },
+ {
+  "current": "returned",
+  "target": "sold",
+  "want": false
+ },
+ {
+  "current": "returned",
+  "target": "returned",
+  "want": true
+ },
+ {
+  "current": "returned",
+  "target": "disposed",
+  "want": true
+ },
+ {
+  "current": "disposed",
+  "target": "stocked",
+  "want": false
+ },
+ {
+  "current": "disposed",
+  "target": "inspecting",
+  "want": false
+ },
+ {
+  "current": "disposed",
+  "target": "maintaining",
+  "want": false
+ },
+ {
+  "current": "disposed",
+  "target": "ready",
+  "want": false
+ },
+ {
+  "current": "disposed",
+  "target": "reserved",
+  "want": false
+ },
+ {
+  "current": "disposed",
+  "target": "sold",
+  "want": false
+ },
+ {
+  "current": "disposed",
+  "target": "returned",
+  "want": true
+ },
+ {
+  "current": "disposed",
+  "target": "disposed",
+  "want": true
+ }
+]
